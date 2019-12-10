@@ -1,0 +1,39 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/keji?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password :
+
+
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  session:
+    store-type: none
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  thymeleaf:
+    cache:
+      false
+    prefix:
+      classpath:
+        /templates/
+    suffix:
+      .html
+    mode:
+      HTML5
+    encoding:
+      utf-8
+    content-type:
+      text/html
