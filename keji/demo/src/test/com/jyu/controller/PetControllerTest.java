@@ -30,6 +30,7 @@ public class PetControllerTest {
     public  void setUp(){
         mockMvc= MockMvcBuilders.webAppContextSetup(wac).build();
     }
+    //查询全部
     @Test
     public void queryAllTest() throws Exception {
         String list=mockMvc.perform(get("/queryall")
@@ -42,12 +43,41 @@ public class PetControllerTest {
     //新增
     @Test
     public void saveTest() throws Exception {
-        String content="{\"id\":null,\"name\":\"keji\",\"owner\":\"Tesla\",\"age\":\"2\"}";
-        String list=mockMvc.perform(post("/save")
+        String content="{\"id\":null,\"name\":\"哈士奇\",\"owner\":\"Tesla\",\"age\":\"2\"}";
+        mockMvc.perform(post("/save")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(content))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
+    }
+
+    //修改
+    @Test
+    public void updateTest() throws Exception {
+        String content="{\"id\":2,\"name\":\"泰迪\",\"owner\":\"Tom\",\"age\":\"3\"}";
+        mockMvc.perform(put("/update")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(content))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+    }
+
+    //详细查询
+    @Test
+    public void queryByIdTest() throws Exception {
+        String list=mockMvc.perform(get("/querybyid/2")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
         System.out.println(list);
+    }
+
+    //删除
+    @Test
+    public void deleteTest() throws Exception {
+        mockMvc.perform(delete("/delete/2")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
     }
 }

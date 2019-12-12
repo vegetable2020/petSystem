@@ -17,6 +17,7 @@ spring:
           paths: /**
   session:
     store-type: none
+
   jpa:
     show-sql: true
     hibernate:
@@ -37,3 +38,14 @@ spring:
       utf-8
     content-type:
       text/html
+
+security:
+  basic:
+    enabled: true
+
+
+
+jyu:
+  security:
+    browser:
+      loginType: REDIRECT

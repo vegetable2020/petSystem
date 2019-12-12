@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/index.html")
     public String getIndex(){
         return "index";
     }

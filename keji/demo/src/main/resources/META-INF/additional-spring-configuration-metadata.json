@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "jyu.security.browser.loginType",
+      "type": "java.lang.String",
+      "description": "Description for jyu.security.browser.loginType."
+  }
+] }

@@ -22,7 +22,7 @@ public class PetsServiceImpl implements PetsService {
     }
 
     @Override
-    public void delect(Long id) {
+    public void delete(Long id) {
         dao.delete(id);
     }
 
