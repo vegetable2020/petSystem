@@ -74,7 +74,7 @@
             <button type="button" class="layui-btn" onclick="window.location.href = 'index.html'"><i class="layui-icon"></i>
             </button>
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                <legend>宠物新增</legend>
+                <legend>宠物信息</legend>
             </fieldset>
             <form class="layui-form"  >
                 <div class="layui-form-item">
@@ -127,13 +127,10 @@
     var type="POST";
     function getInfo() {
         var layer=layui.layer;
-        var list=window.location.href;
-        var reg2 = /([^=]+)$/;
-        var id = list.match(reg2)[1];
+        var id = getQueryString("id");
         var url="querybyid/"+id;
         if(id!=null){
-            //layer.alert("if里了"+url+type);
-            ajax(id);
+            ajax(url);
             // layer.$('#name').val("狗");
             // layer. $('#age').val(1);
             // layer.$('#owner').val("小明");
@@ -149,11 +146,18 @@
         }
     }
 
-    function ajax(id){
-        layer.alert(id);
+
+    function getQueryString(name){
+        var reg = new RegExp("(^|&amp;)"+ name +"=([^&amp;]*)(&amp;|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    function ajax(url){
+        layer.alert(url);
         layer.$.ajax({
-            url:"delete/"+id,//"querybyid/"+id,
-            method:"DELETE"
+            url:url,
+            method:"PUT"
         });
     }
 
