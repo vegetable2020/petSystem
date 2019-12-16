@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "jyu.browser.security")
+@ConfigurationProperties(prefix = "jyu.security")
 public class SecurityProperties {
     private BrowserProperties browser=new BrowserProperties();
 

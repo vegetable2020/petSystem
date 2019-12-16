@@ -33,19 +33,17 @@ public class BrowserSecurityController {
     private SecurityProperties properties;
     @RequestMapping("/authentication/require")
     @ResponseStatus(code= HttpStatus.UNAUTHORIZED)
-    public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //从请求缓存中获取请求对象
         SavedRequest savedRequest= requestCache.getRequest(request,response);
-        if(null!=savedRequest){
-            String target=savedRequest.getRedirectUrl();
-            logger.info("登录页面是："+properties.getBrowser().getLoginPage());
-            logger.info("引发跳转的路径是："+target);
-            if(StringUtils.endsWith(target,".html")){
-                //通过redirectStrategy进行请求的跳转
-                redirectStrategy.sendRedirect(request,response,securityProperties.getBrowser().getLoginPage());
-            }
+        if(null!=savedRequest) {
+            String target = savedRequest.getRedirectUrl();
+            logger.info("登录页面是：" + properties.getBrowser().getLoginPage());
+            logger.info("引发跳转的路径是：" + target);
+            //通过redirectStrategy进行请求的跳转
+            redirectStrategy.sendRedirect(request, response, securityProperties.getBrowser().getLoginPage());
+
         }
-        //如果代码执行到此，说明请求需要返回的是json数据
-        return new SimpleResponse("访问的资源需要认证，请引导用户到登录页面！");
+//        response.sendRedirect("/index.html");
     }
 }

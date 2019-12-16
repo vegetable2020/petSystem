@@ -10,4 +10,9 @@ public class HelloController {
     public String getIndex(){
         return "index";
     }
+
+    @RequestMapping(value = "/add.html")
+    public String add(){
+        return "add";
+    }
 }

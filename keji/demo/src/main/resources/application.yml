@@ -47,5 +47,6 @@ security:
 
 jyu:
   security:
-    browser:
-      loginType: REDIRECT
+    broswer:
+        loginType: REDIRECT
+

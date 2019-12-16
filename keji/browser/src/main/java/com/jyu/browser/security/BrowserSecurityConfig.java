@@ -36,7 +36,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(mathAuthenticationFailureHandler)
                 .and()//并且语法
                 .authorizeRequests()//授权
-                .antMatchers( "/authentication/require", securityProperties.getBrowser().getLoginPage(),"/static/Login.css").permitAll()
+                .antMatchers( "/static/keji-9b252ad895d7e6f596c82e6f6574d922.jpg","/authentication/require", securityProperties.getBrowser().getLoginPage(),"/static/Login.css").permitAll()
                 .anyRequest()//任何请求必须经过授权
                 .authenticated()
                 .and()

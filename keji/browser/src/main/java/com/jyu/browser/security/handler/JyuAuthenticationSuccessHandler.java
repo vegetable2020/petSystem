@@ -30,7 +30,7 @@ public class JyuAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
         logger.info("认证成功！！！");
         if(LoginType.JSON.equals(securityProperties.getBrowser().getLoginType())){
             response.setContentType("application/json;charset=utf-8");
-            response.getWriter().write(objectMapper.writeValueAsString(authentication));
+            response.sendRedirect("/index.html");//只允许认证成功后跳转到主页
         }else {
             //修改当前类实现到接口为框架默认实现类：SavedRequestAwareAuthenticationSuccessHandler
             //调用父类到处理方法，让框架进行默认到处理

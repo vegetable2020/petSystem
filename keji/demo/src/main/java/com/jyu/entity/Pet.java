@@ -16,6 +16,15 @@ public class Pet {
     private String name;
     private String owner;
     private int age;
+    private String message;//描述
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public Long getId() {
         return id;
@@ -49,12 +58,13 @@ public class Pet {
         this.age = age;
     }
 
-    public Pet() {
-    }
-
-    public Pet(String name, String owner, int age) {
+    public Pet(String name, String owner, int age, String message) {
         this.name = name;
         this.owner = owner;
         this.age = age;
+        this.message = message;
+    }
+
+    public Pet() {
     }
 }
