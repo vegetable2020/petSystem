@@ -41,6 +41,7 @@ public class PetsController {
         modelMap.put("data",pet);
         modelMap.put("size",1);
         modelMap.put("msg","查询成功");
+        System.out.println("查询成功");
         return modelMap;
     }
 

@@ -142,7 +142,8 @@
                     });
                 });
             } else if (obj.event === 'edit') {
-                layer.alert('编辑行：<br/>' + JSON.stringify(data))
+                var href="add.html?id="+data.id;
+                window.location.href=href;
             }
         });
 
